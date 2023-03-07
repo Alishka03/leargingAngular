@@ -7,11 +7,21 @@ import {PostComponent} from './post/post.component';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  stepForm:string;
+  counter: number = 1;
+  users: Array<any> = []
+  name: string;
+  email: string;
+  address: string;
 
-
-  onClick(status){
-    this.stepForm = status;
+  onClick() {
+    this.users.push(
+      {id: this.counter++, name: this.name, email: this.email, address: this.address}
+    )
+  }
+  deleteUser(user){
+    this.users.forEach( (item, index) => {
+      if(item === user) this.users.splice(index,1);
+    });
   }
   constructor() {
 
