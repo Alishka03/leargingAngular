@@ -2,22 +2,19 @@
 <div class="container">
   <h1>Hello</h1>
 
-  <button (click)="onClick()">Add New Data</button>
+  <div>
+    <button (click)="onClick('step 1')">Step 1</button>
+    <button (click)="onClick('step 2')">Step 2</button>
+    <button (click)="onClick('step 3')">Step 3</button>
 
-  <div *ngIf=' objArray.length>0;then postList else noData'></div>
-  <ng-template #postList>
-      <li *ngFor="let post of objArray">
-        {{post.postTitle}}: {{post.id}}
-        <button (click)="onDelete(post)">Delete</button>
-      </li>
-
-  </ng-template>
-  <ng-template #noData>
-    <div>
-      <p>There is no data to show</p>
+  <div [ngSwitch]="stepForm">
+    <div *ngSwitchCase="'step 1'">Step 1 form</div>
+    <div *ngSwitchCase="'step 2'">Step 2 form</div>
+    <div *ngSwitchCase="'step 3'" >Step 3 form</div>
+    <div *ngSwitchDefault>
+      Something else
     </div>
-  </ng-template>
-  <ng-template>Template message</ng-template>
+  </div>
 </div>
 
 
