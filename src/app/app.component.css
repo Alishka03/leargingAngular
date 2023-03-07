@@ -1,3 +1,19 @@
 .text-red{
   background-color:red;
 }
+div{
+  margin:10px;
+  padding:10px;
+}
+
+.main{
+  color:red;
+  text-transform: uppercase;
+}
+.text-weight{
+  font-weight: bold;
+}
+.container{
+  margin-left:100px;
+  width: 700px;
+}

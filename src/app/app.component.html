@@ -1,26 +1,47 @@
 <!--Style Binding -->
 <div class="container">
-  <h1>Hello</h1>
-
-  <button (click)="onClick()">Add New Data</button>
-
-  <div *ngIf=' objArray.length>0;then postList else noData'></div>
-  <ng-template #postList>
-      <li *ngFor="let post of objArray">
-        {{post.postTitle}}: {{post.id}}
-        <button (click)="onDelete(post)">Delete</button>
-      </li>
-
-  </ng-template>
-  <ng-template #noData>
-    <div>
-      <p>There is no data to show</p>
-    </div>
-  </ng-template>
-  <ng-template>Template message</ng-template>
+  <h1>User Details</h1>
+  <input type="text" placeholder="Name" [(ngModel)]="name"><br>
+  <br>
+  <input type="text" placeholder="Email" [(ngModel)]="email"><br>
+  <br>
+  <textarea rows="10" placeholder="Address" [(ngModel)]="address"></textarea><br>
+  <br>
+  <button (click)="onClick()">Save</button>
+  <div>
+    <table style="width:100%">
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Action</th>
+      </tr>
+      <tr *ngFor="let user of users; index as i">
+        <th>{{user.id}}</th>
+        <th>{{user.name}}</th>
+        <th>{{user.email}}</th>
+        <th>{{user.address}}</th>
+        <th><button (click)="deleteUser(user)">Delete</button></th>
+      </tr>
+    </table>
+  </div>
 </div>
 
 
+<!--<div>-->
+<!--  <button (click)="onClick('step 1')">Step 1</button>-->
+<!--  <button (click)="onClick('step 2')">Step 2</button>-->
+<!--  <button (click)="onClick('step 3')">Step 3</button>-->
+
+<!--  <div [ngSwitch]="stepForm">-->
+<!--    <div *ngSwitchCase="'step 1'">Step 1 form</div>-->
+<!--    <div *ngSwitchCase="'step 2'">Step 2 form</div>-->
+<!--    <div *ngSwitchCase="'step 3'" >Step 3 form</div>-->
+<!--    <div *ngSwitchDefault>-->
+<!--      Something else-->
+<!--    </div>-->
+<!--  </div>-->
 <!--<div *ngIf='objArray.length>0;else  noData'>-->
 <!--  <li *ngFor="let post of objArray">-->
 <!--    {{post.postTitle}}: {{post.id}}-->

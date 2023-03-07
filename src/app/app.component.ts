@@ -7,26 +7,30 @@ import {PostComponent} from './post/post.component';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  objArray: Array<any> = [
-    {id:1,postTitle:'Post 1'},
-    {id:2,postTitle:'Post 2'},
-    {id:3,postTitle:'Post 3'},
-    {id:4,postTitle:'Post 4'},
-    {id:5,postTitle:'Post 5'},
+  counter: number = 1;
+  users: Array<any> = []
+  name: string;
+  email: string;
+  address: string;
 
-  ]
-  onClick(){
-    let len = this.objArray.length+1
-    this.objArray.push({id:len,postTitle:'Post '+len})
+  onClick() {
+    this.users.push(
+      {id: this.counter++, name: this.name, email: this.email, address: this.address}
+    )
   }
-  onDelete(post){
-    let id  = post.id
-    this.objArray = this.objArray.filter(item => item.id !== id);
+  deleteUser(user){
+    this.users.forEach( (item, index) => {
+      if(item === user) this.users.splice(index,1);
+    });
   }
-  postArray: Array<string> = ['Post 1', 'Post 2', 'Post 3', 'Post 4', 'Post 5']
-
   constructor() {
 
   }
 }
 
+
+// onDelete(post){
+//   let id  = post.id
+//   this.objArray = this.objArray.filter(item => item.id !== id);
+// }
+// postArray: Array<string> = ['Post 1', 'Post 2', 'Post 3', 'Post 4', 'Post 5']
