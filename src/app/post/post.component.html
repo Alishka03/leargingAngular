@@ -1,0 +1,8 @@
+ <h1>
+  {{ title }} <br />
+  {{ fromParent }}
+</h1>
+<app-postlist [fromPost]="fromPostToPostList"></app-postlist>
+<br>
+ <hr>
+ <button (click)="sendMessage()">Click</button>
